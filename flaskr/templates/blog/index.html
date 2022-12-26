@@ -7,22 +7,20 @@
 
 {% block content %}
 
+
         <p id="hello">BEEP:</p>
 
 <script>
 var AuthKey = ''
-document.getElementById("hello").append('Boop')
 
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('LWQ-AuthKey', function (event) {
+    AuthKey = event.detail
 
-    document.addEventListener('LWQ-AuthKey', function (event) {
-        AuthKey = event.detail
+    // display AuthKey in developer console
+    console.log('AuthKey: ' + AuthKey)
 
-        // display AuthKey in developer console
-        console.log('AuthKey: ' + AuthKey)
-
-        // display AuthKey on html body
-        document.getElementById("hello").append('AuthKey: ' + AuthKey)
-})})
+    // display AuthKey on html body
+    document.getElementById("hello").append('AuthKey: ' + AuthKey)
+})
 </script>
 {% endblock %}
