@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}What is it?{% endblock %}</h2>
+
+{% endblock %}
+
+{% block content %}
+
+        <p id="hello">BEEP:</p>
+
+<script>
+var AuthKey = ''
+document.getElementById("hello").append('Boop')
+
+document.addEventListener('DOMContentLoaded',()=>{
+
+    document.addEventListener('LWQ-AuthKey', function (event) {
+        AuthKey = event.detail
+
+        // display AuthKey in developer console
+        console.log('AuthKey: ' + AuthKey)
+
+        // display AuthKey on html body
+        document.getElementById("hello").append('AuthKey: ' + AuthKey)
+})})
+</script>
+{% endblock %}
